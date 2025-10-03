@@ -1,1 +1,558 @@
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Tattoo Shop Web Solutions | Professional Websites for Tattoo Studios
+    </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #1a1a1a;
+        --accent: #ff3366;
+        --secondary: #8a2be2;
+        --light: #f8f9fa;
+        --dark: #212529;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .navbar {
+        background-color: var(--primary);
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+        color: var(--accent) !important;
+      }
+
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://wallup.net/wp-content/uploads/2019/09/657850-arm-tattoo.jpg")
+            center/cover no-repeat;
+        color: white;
+        padding: 100px 0;
+      }
+
+      .hero-section h1 {
+        font-size: 3rem;
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 40px;
+        padding-bottom: 15px;
+        display: inline-block;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background-color: var(--accent);
+      }
+
+      .package-card {
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        border: none;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .package-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .package-header {
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+
+      .basic .package-header {
+        background-color: #6c757d;
+      }
+
+      .medium .package-header {
+        background-color: var(--secondary);
+      }
+
+      .pro .package-header {
+        background-color: var(--accent);
+      }
+
+      .price {
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .feature-list li {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .feature-list li:last-child {
+        border-bottom: none;
+      }
+
+      .feature-list li i {
+        color: var(--accent);
+        margin-right: 10px;
+      }
+
+      .btn-custom {
+        background-color: var(--accent);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-weight: bold;
+        border: none;
+        transition: all 0.3s;
+      }
+
+      .btn-custom:hover {
+        background-color: #e02e5c;
+        transform: scale(1.05);
+      }
+
+      .highlight {
+        background-color: var(--primary);
+        color: white;
+        padding: 80px 0;
+      }
+
+      .testimonial-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .client-info {
+        display: flex;
+        align-items: center;
+      }
+
+      .client-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        background-color: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      footer {
+        background-color: var(--primary);
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      footer a.text-light:hover {
+        color: var(--accent);
+      }
+
+      .badge-offer {
+        position: absolute;
+        top: -10px;
+        right: 20px;
+        background-color: var(--accent);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .whatsapp-button {
+        display: inline-block;
+        background-color: #25d366;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s;
+      }
+
+      .whatsapp-button:hover {
+        background-color: #128c7e;
+        transform: scale(1.05);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 991px) {
+        .hero-section {
+          padding: 70px 0;
+        }
+        .hero-section h1 {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .hero-section {
+          padding: 50px 0;
+        }
+        .hero-section h1 {
+          font-size: 1.8rem;
+        }
+      }
+
+      iframe {
+        width: 100%;
+        height: 500px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <i class="fas fa-palette me-2"></i>TattooWeb Solutions
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#packages">Packages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 text-center text-lg-start">
+            <h1 class="fw-bold mb-4">Where Art Meets Digital</h1>
+            <p class="lead mb-4">
+              Showcase your artistry, attract new clients, and grow your tattoo
+              business with our custom web solutions designed specifically for
+              tattoo shops.
+            </p>
+            <a href="#packages" class="btn btn-custom btn-lg">View Packages</a>
+          </div>
+          <div class="col-lg-6 text-center mt-4 mt-lg-0">
+            <img
+              src="https://scontent.fcmb11-1.fna.fbcdn.net/v/t39.30808-6/557629039_122211315860095242_2044603333812451461_n.jpg"
+              alt="Tattoo Artist at Work"
+              class="img-fluid rounded shadow"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YouTube Video -->
+    <section class="packages py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <iframe
+              src="https://www.youtube.com/embed/fs-gWV6jmhM?si=zelD2zXqclTSb4Ow"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-5">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col-12">
+            <h2 class="section-title d-inline-block">Choose Your Package</h2>
+            <p class="text-muted">
+              Select the perfect solution for your tattoo studio's needs
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Basic -->
+          <div class="col-lg-4 col-md-6">
+            <div class="package-card basic h-100">
+              <div class="package-header">
+                <h3>Basic</h3>
+                <p class="mb-0">Creative Static Website</p>
+                <div class="price mb-3">5,000/=</div>
+              </div>
+              <div class="card-body p-4">
+                <h5 class="mb-3">What You Get:</h5>
+                <ul class="feature-list">
+                  <li><i class="fas fa-check"></i> Creative static website</li>
+                  <li><i class="fas fa-check"></i> Responsive design</li>
+                  <li><i class="fas fa-check"></i> Portfolio gallery</li>
+                  <li><i class="fas fa-check"></i> Contact information</li>
+                  <li><i class="fas fa-check"></i> Social media integration</li>
+                </ul>
+                <div class="text-center mt-4">
+                  <button class="btn btn-outline-dark w-100">Get Started</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medium -->
+          <div class="col-lg-4 col-md-6">
+            <div class="package-card medium h-100">
+              <div class="badge-offer mt-4">POPULAR</div>
+              <div class="package-header">
+                <h3>Medium</h3>
+                <p class="mb-0">Business Web Application</p>
+                <div class="price mb-3">
+                  15,000/= <br /><small>or 2,000/= per month</small>
+                </div>
+              </div>
+              <div class="card-body p-4">
+                <p class="text-danger py-1 text-center">
+                  For annual payment, server and maintenance are <b>free</b>
+                </p>
+                <h5 class="mb-3">What You Get:</h5>
+                <ul class="feature-list">
+                  <li><i class="fas fa-check"></i> Business web application</li>
+                  <li><i class="fas fa-check"></i> Admin panel (fully customizable)</li>
+                  <li><i class="fas fa-check"></i> Appointment booking system</li>
+                  <li><i class="fas fa-check"></i> Artist portfolio management</li>
+                  <li><i class="fas fa-check"></i> Client database</li>
+                  <li><i class="fas fa-check"></i> Blog/News section</li>
+                </ul>
+                <div class="text-center mt-4">
+                  <button class="btn btn-custom w-100">Get Started</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pro -->
+          <div class="col-lg-4 col-md-6">
+            <div class="package-card pro h-100">
+              <div class="badge-offer mt-4" style="background-color: #ffd900; color: #000;">
+                LIMITED OFFER
+              </div>
+              <div class="package-header">
+                <h3>Pro</h3>
+                <p class="mb-0">Complete Business Solution</p>
+                <div class="price mb-3">
+                  50,000/= <br /><small>or 4,000/= per month</small>
+                </div>
+              </div>
+              <div class="card-body p-4">
+                <p class="text-danger py-1 text-center">
+                  For annual payment, server and maintenance are <b>free</b>
+                </p>
+                <h5 class="mb-3">What You Get:</h5>
+                <ul class="feature-list">
+                  <li><i class="fas fa-check"></i> Business web application + admin panel</li>
+                  <li><i class="fas fa-check"></i> Ecommerce + POS integration</li>
+                  <li><i class="fas fa-check"></i> SMS billing system</li>
+                  <li><i class="fas fa-check"></i> Inventory management</li>
+                  <li><i class="fas fa-check"></i> Customer loyalty program</li>
+                  <li><i class="fas fa-check"></i> Advanced analytics</li>
+                  <li><i class="fas fa-check"></i> Priority support</li>
+                </ul>
+                <div class="text-center mt-4">
+                  <button class="btn btn-custom w-100">Get Started</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mt-4 text-center">
+            <p class="text-muted">
+              Domain and hosting costs are separate. We can provide a subdomain if needed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 highlight">
+      <div class="container">
+        <div class="row text-center mb-5">
+          <div class="col-12">
+            <h2 class="section-title d-inline-block text-white">Why Choose Our Solutions</h2>
+            <p class="text-light">
+              Designed for tattoo studios to showcase artistry and streamline operations
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4 text-center">
+            <i class="fas fa-paint-brush fa-3x mb-3" style="color: var(--accent)"></i>
+            <h4 class="text-white">Showcase Your Art</h4>
+            <p class="text-light">
+              Beautiful galleries to display your tattoo portfolio and attract new clients.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <i class="fas fa-mobile-alt fa-3x mb-3" style="color: var(--accent)"></i>
+            <h4 class="text-white">Mobile Optimized</h4>
+            <p class="text-light">
+              Responsive designs that look great on all devices.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <i class="fas fa-calendar-check fa-3x mb-3" style="color: var(--accent)"></i>
+            <h4 class="text-white">Easy Booking</h4>
+            <p class="text-light">
+              Streamlined appointment systems to manage your schedule and reduce no-shows.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <i class="fas fa-shopping-cart fa-3x mb-3" style="color: var(--accent)"></i>
+            <h4 class="text-white">Ecommerce Ready</h4>
+            <p class="text-light">
+              Sell merchandise, aftercare products, and gift certificates directly from your site.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <i class="fas fa-chart-line fa-3x mb-3" style="color: var(--accent)"></i>
+            <h4 class="text-white">Business Analytics</h4>
+            <p class="text-light">
+              Track your performance, understand your clients, and grow your business.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <i class="fas fa-headset fa-3x mb-3" style="color: var(--accent)"></i>
+            <h4 class="text-white">Dedicated Support</h4>
+            <p class="text-light">
+              Our team is here to help you succeed with ongoing support and maintenance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="mb-4">
+              Ready to elevate your tattoo studio's online presence? Contact us today for a free consultation.
+            </p>
+            <p><i class="fas fa-phone me-2 text-accent"></i> +94 77 477 1042</p>
+            <p><i class="fas fa-envelope me-2 text-accent"></i> dhanushkasandagiri@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt me-2 text-accent"></i> Gampaha, Sri Lanka</p>
+            <div class="social-links">
+              <a href="#" class="me-3 text-dark"><i class="fab fa-facebook fa-2x"></i></a>
+              <a href="#" class="me-3 text-dark"><i class="fab fa-instagram fa-2x"></i></a>
+              <a href="#" class="me-3 text-dark"><i class="fab fa-twitter fa-2x"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 text-center">
+            <a class="whatsapp-button" href="https://wa.me/+94774771042?text=Hello%20there!" target="_blank">
+              Open in WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <h4><i class="fas fa-palette me-2"></i>TattooWeb Solutions</h4>
+            <p>Professional web solutions for tattoo studios to showcase artistry and grow business.</p>
+          </div>
+          <div class="col-md-3 mb-4 mb-md-0">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#packages" class="text-light">Packages</a></li>
+              <li><a href="#features" class="text-light">Features</a></li>
+              <li><a href="#contact" class="text-light">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5>Legal</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-light">Privacy Policy</a></li>
+              <li><a href="#" class="text-light">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="mb-0">&copy; TattooWeb Solutions. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
